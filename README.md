@@ -1,6 +1,8 @@
 # betBot for [kicktipp.de](https://www.kicktipp.de/)
 
-> Happy for PRs and if you find a nice way to deploy this for non-technical users.
+> Automate your bets on kicktipp.de for the European Championship based on betting odds - should also work on every other mode on this platform.
+
+Status: It runs and works for now, but I'm not happy with the structure :)
 
 ## Why do you need this?
 
@@ -8,7 +10,7 @@ I'm a handball fan, but I like to bet with my friends. I also know myself, and I
 
 ## How does it work?
 
-Kicktipp.de provides betting odds from third party providers. This little program takes the odds and transform them into goals. Everything with a little random factor. Every run should look a little bit different as the one before. It also won't look the same as you can define your favorite team and even how much bonus goals it gets. Of course you could do some fancy machine learning stuff, and I would love to see it and especially compare both concepts.
+[Kicktipp.de](https://www.kicktipp.de/) provides betting odds from third party providers. This little program takes the odds and transform them into goals. Everything with a little random factor. Every run should look a little bit different as the one before. It also won't look the same as you can define your favorite team and even how much bonus goals it gets. Of course you could do some fancy machine learning stuff, and I would love to see it and especially compare both concepts.
 
 ## How to use?
 
@@ -33,6 +35,8 @@ PS: This bot doesn't do the bonus bets! Don't forget them!!
 
 ## Open topics / ideas
 
+> Feel free to create PRs for one of the following topics. Or do you even have other ideas? -> [Issue](https://github.com/LukaHarambasic/betBot/issues)
+
 - [ ] Future proof for final rounds - currently only the group phase is working
 - [ ] Dockerfile
 - [ ] Publish to dockerhub
@@ -40,3 +44,4 @@ PS: This bot doesn't do the bonus bets! Don't forget them!!
 - [ ] Add tests
 - [ ] Check for typos
 - [ ] Restructure the project
+- [ ] ML solution
