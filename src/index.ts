@@ -24,35 +24,34 @@ const getTeams = async (match: ElementHandle): Promise<string[]> => {
     return [team1, team2]
 }
 
-const getQuotas = async (match: ElementHandle): Promise<number[]> => {
-    const quotas = await match.$$('.kicktipp-wettquote')
-    return await Promise.all(quotas.map(async (quota) => Number(await quota.innerText())))
+const getOdds = async (match: ElementHandle): Promise<number[]> => {
+    const odds = await match.$$('.kicktipp-wettquote')
+    return await Promise.all(odds.map(async (odd) => Number(await odd.innerText())))
 }
 
 const getGoals = async (match: ElementHandle): Promise<number[]> => {
     const teams = await getTeams(match)
-    const quotas = await getQuotas(match)
-    const [quota1, quota2, quota3]= quotas
+    const odds = await getOdds(match)
     // TODO: if text "Spieltag" is in ".prevnextTitle > a" a tie is possible
     const isTiePossible = true
     // removed  && flipACoin from the condition
-    if(isTieRealistic(quotas) && isTiePossible && !isPreferredTeamInTeams(teams)) {
+    if(isTieRealistic(odds) && isTiePossible && !isPreferredTeamInTeams(teams)) {
         // If a tie is possible, realistic and the randomizer wants one
         const goal = randomNumberInInterval(0, Number(env('TIE_MAX')))
         return [goal, goal]
     } else {
         return [
-            getWeightedGoal(quota3, teams, teams[0]),
-            getWeightedGoal(quota1, teams, teams[1])
+            getWeightedGoal(odds[2], teams, teams[0]),
+            getWeightedGoal(odds[0], teams, teams[1])
         ]
     }
 }
 
 // TODO rename - better idea than weighted?
 // TODO more granular?
-const getWeightedGoal = (quota: number, teams: string[], currentTeam: string): number => {
-    const goal = getPreferredGoal(isPreferredTeam(currentTeam), getRandomGoal(quota))
-    // to many goals per match with high quotas so I do some "magic"
+const getWeightedGoal = (odd: number, teams: string[], currentTeam: string): number => {
+    const goal = getPreferredGoal(isPreferredTeam(currentTeam), getRandomGoal(odd))
+    // to many goals per match with high odds so I do some "magic"
     if(goal >= 11) {
         return Math.round(goal / 3) + 2
     }

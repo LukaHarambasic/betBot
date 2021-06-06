@@ -18,7 +18,7 @@ export const isPreferredTeamInTeams = (teams: string[]) => teams.includes(env('F
 
 // round up and down depending on coin flip
 // for testing flipACoin should be an argument
-export const getRandomGoal = (quota: number): number => flipACoin() ? Math.ceil(quota) : Math.floor(quota)
+export const getRandomGoal = (odd: number): number => flipACoin() ? Math.ceil(odd) : Math.floor(odd)
 
 // preferred teams always one additional goals
 export const getPreferredGoal = (isPreferredTeam: boolean, randomGoal: number): number => {
@@ -27,10 +27,10 @@ export const getPreferredGoal = (isPreferredTeam: boolean, randomGoal: number): 
 }
 
 // TODO make threshold configurable
-export const isTieRealistic = (quotas: number[]): boolean => {
+export const isTieRealistic = (odds: number[]): boolean => {
     const tieThreshold = Number(env('TIE_THRESHOLD'))
-    return Math.abs(quotas[1] - quotas[0]) <= tieThreshold
-        || Math.abs(quotas[1] - quotas[2]) <= tieThreshold
+    return Math.abs(odds[1] - odds[0]) <= tieThreshold
+        || Math.abs(odds[1] - odds[2]) <= tieThreshold
 }
 
 export const env = (key: string): string => {
