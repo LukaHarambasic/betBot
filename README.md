@@ -23,6 +23,7 @@ I'm a handball fan, but I like to bet with my friends. I also know myself, and I
 node -v # you 14 or newer
 ```
 2. Download or clone this repository.
+
 ![Download coding](docu/download.png)
    
 3. Rename `sample.env` to `.env`.
