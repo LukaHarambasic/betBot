@@ -22,7 +22,7 @@ I'm a handball fan, but I like to bet with my friends. I also know myself, and I
 ```bash
 node -v # you 14 or newer
 ```
-2. Download or clone this repository.
+2. Download or clone (if you need what cloning means you won't need a step by step guide) this repository.
 
 ![Download coding](docu/download.png)
    
