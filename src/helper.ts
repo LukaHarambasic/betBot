@@ -26,13 +26,14 @@ export const getPreferredGoal = (isPreferredTeam: boolean, randomGoal: number): 
     return isPreferredTeam ? (randomGoal + bonus) : randomGoal
 }
 
-// TODO make threshold configurable
+// user defines a threshold in which range a tie is realistic
 export const isTieRealistic = (odds: number[]): boolean => {
     const tieThreshold = Number(env('TIE_THRESHOLD'))
     return Math.abs(odds[1] - odds[0]) <= tieThreshold
         || Math.abs(odds[1] - odds[2]) <= tieThreshold
 }
 
+// get env and throw error if it isn't possible
 export const env = (key: string): string => {
     const result = process.env[key]
     if(result) {
