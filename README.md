@@ -20,12 +20,13 @@ node -v # you 14 or newer
 ```
 2. Download or clone this repository.
 ![Download coding](docu/download.png)
+   
 3. Rename `sample.env` to `.env`.
 4. Add your kicktipp.de credentials:
     - TEAM - you find it in the URL `https://www.kicktipp.de/handball/tippabgabe` -> **handball**
     - EMAIL
     - PASSWORD
-5. Run `npm install` in your terminal - run this after each update
+5. Run `npm install` in your terminal - run this after each update.
 6. Run `npm run start` in your terminal - every time you want to get your goals.
 7. Enjoy and win! :)
 
