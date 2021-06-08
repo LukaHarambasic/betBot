@@ -105,7 +105,7 @@ const betPerMatchDay = async (page: Page) => {
 }
 
 (async () => {
-    const browser = await chromium.launch({ headless: Boolean(env('HEADLESS')), slowMo: Number(env('SLO_MO')) })
+    const browser = await chromium.launch({ headless: false, slowMo: Number(env('SLO_MO')) })
     const context = await browser.newContext({
         locale: env('LANGUAGE'),
     })
