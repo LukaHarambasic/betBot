@@ -81,7 +81,7 @@ const login = async (page: Page) => {
 }
 
 const bet = async (page: Page) => {
-    await page.waitForSelector('text="Tippabgabe"')
+    // await page.waitForSelector('text="Tippabgabe"')
     const groupPhaseElement = await page.$$('.prevnextTitle')
     // TODO get text and check if "Spieltag"
     const matches = await page.$$('#tippabgabeSpiele tbody .datarow')
@@ -114,7 +114,7 @@ const betPerMatchDay = async (page: Page) => {
         const url = `https://www.kicktipp.de/${TEAM}/tippabgabe`
         await page.goto(url)
         await login(page)
-        await page.click('#accept-choices')
+        // await page.click('#accept-choices')
         await betPerMatchDay(page)
         // await browser.close()
         console.log('Browser closed')
