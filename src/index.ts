@@ -52,11 +52,11 @@ const getGoals = async (match: ElementHandle): Promise<number[]> => {
 const getWeightedGoal = (odd: number, teams: string[], currentTeam: string): number => {
     const goal = getPreferredGoal(isPreferredTeam(currentTeam), getRandomGoal(odd))
     // to many goals per match with high odds so I do some "magic"
-    if(goal >= 11) {
-        return Math.ceil(Math.sqrt(goal))
-    }
     if(goal >= 5) {
-        return Math.round(goal / 2)
+        if(flipACoin()) {
+            return Math.ceil(Math.sqrt(goal)) + 1
+        }
+        return Math.ceil(Math.sqrt(goal))
     }
     // if goal is > 1 subtract 1 depending on coin flip, otherwise 0 goals aren't possible
     if(goal >= 1 && flipACoin()) {
