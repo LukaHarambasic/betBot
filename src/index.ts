@@ -53,7 +53,7 @@ const getWeightedGoal = (odd: number, teams: string[], currentTeam: string): num
     const goal = getPreferredGoal(isPreferredTeam(currentTeam), getRandomGoal(odd))
     // to many goals per match with high odds so I do some "magic"
     if(goal >= 11) {
-        return Math.round(goal / 3) + 2
+        return Math.ceil(Math.sqrt(goal))
     }
     if(goal >= 5) {
         return Math.round(goal / 2)
@@ -97,7 +97,7 @@ const bet = async (page: Page) => {
 const betPerMatchDay = async (page: Page) => {
     const url = `https://www.kicktipp.de/${TEAM}/tippabgabe?&spieltagIndex=`
     // TODO extend for finals
-    const matchDays = [1,2,3,4,5]
+    const matchDays = [1,2,3,4,5,6]
     for await (const matchDay of matchDays) {
         await page.goto(url + matchDay)
         await bet(page)
