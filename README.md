@@ -16,7 +16,7 @@ I'm a handball fan, but I like to bet with my friends. I also know myself, and I
 
 1. Check that you have the right Node.js version - [install Node.js](https://nodejs.org/en/download/).
 ```bash
-node -v # you 14 or newer
+node -v # you need version 14 or newer
 ```
 2. Download or clone (if you need what cloning means you won't need a step by step guide) this repository.
 
